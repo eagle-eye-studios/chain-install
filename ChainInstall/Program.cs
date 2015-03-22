@@ -168,6 +168,8 @@ namespace ChainInstall
                     issFile = appendToExecDir(Path.Combine(ISS_PATH, Path.GetFileNameWithoutExtension(fileMappings[key]) + "_generated.iss"));
                 else
                     issFile = appendToExecDir(Path.Combine(ISS_PATH, Path.GetFileNameWithoutExtension(fileMappings[key]) + "_uninstall.iss"));
+                if (Mode == OpMode.Remove && !File.Exists(issFile)) //most likely an update which will be removed with the orig install file
+                    continue;
                 if (!File.Exists(setupFile))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -193,7 +195,7 @@ namespace ChainInstall
 
         static int LaunchInstaller(string filePath, string issFile, bool remove)
         {
-            Console.WriteLine("Installing " + Path.GetFileName(filePath));
+            Console.WriteLine("Running: " + Path.GetFileName(filePath));
             var p = new Process();
             if (remove)
             {
