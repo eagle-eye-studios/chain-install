@@ -3,7 +3,13 @@
 
 ## Included .iss files
 Already included .iss files are for installing OMSI 2 (omnibussimulator.de) and paid addons.
-If you want to use them, put
+If you want to use them, put the following setup files into the 'files' directory:
+* AS_AEROSOFT-LAUNCHER_V1203.exe
+* AS_OMSI-2-ADDON-DREI-GENERATIONEN_V110.exe
+* AS_OMSI-2-ADDON-HAMBURG_UPD_V202.exe
+* AS_OMSI-2-ADDON-HAMBURG_V200.exe
+* AS_OMSI-2-ADDON-STADTBUS-O305_V110.exe
+* AS_OMSI-2-ADDON-WIEN_V110.exe
 
 ## How to use
 1. Generate .iss files for your setups by running <code>setup.exe /r /f1"C:\setup.iss"</code>. While you navigate through the dialogues every action will be recorded in the .iss file you specified in the command.
