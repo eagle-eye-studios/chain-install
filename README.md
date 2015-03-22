@@ -1,6 +1,10 @@
 # Chain installer for InstallShield Setup files
 *Small program that can chain run InstallShield setups in silent mode. Ideal for repeated (mass) distribution of InstallShield Setups*
 
+## Included .iss files
+Already included .iss files are for installing OMSI 2 (omnibussimulator.de) and paid addons.
+If you want to use them, put
+
 ## How to use
 1. Generate .iss files for your setups by running <code>setup.exe /r /f1"C:\setup.iss"</code>. While you navigate through the dialogues every action will be recorded in the .iss file you specified in the command.
 2. Now you need to generate the .iss file for the uninstall process by running <code>setup.exe /uninst /r /f1"C:\setup_uninstall.iss"</code>. Pay attention that you specify the same name as the install file followed by "_uninstall".
@@ -30,16 +34,16 @@ Files to move:
 * <code>setup2_39_SP2.exe</code> **->** <code>Installation_Path\files\setup2_39_SP2.exe</code>
 
 CHAIN_INSTALL.INI:
-<code>
-[mappings]
-setup1_v201_ms.exe=setup1_201.iss
-setup2_39_SP2.exe=setup2_39_SP2.iss
 
-[variables]
-{{INSTALL_DIR}}=C:\Program Files (x86)
+    [mappings]
+    setup1_v201_ms.exe=setup1_201.iss
+    setup2_39_SP2.exe=setup2_39_SP2.iss
 
-[other]
-launchWhenInstalled=C:\Windows\system32\notepad.exe
-</code>
+    [variables]
+    {{INSTALL_DIR}}=C:\Program Files (x86)
+
+    [other]
+    launchWhenInstalled=C:\Windows\system32\notepad.exe
+
 
 ***If you have suggestions please implement and submit them as pull requests***
